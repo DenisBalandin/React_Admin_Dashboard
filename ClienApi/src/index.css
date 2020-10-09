@@ -1,0 +1,250 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #e6ecf0;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Navigation Bar */
+#NavBar{
+  padding:13px;
+  background: rgb(89,173,235);
+  background: linear-gradient(90deg, rgba(89,173,235,1) 0%, rgba(53,206,147,1) 100%);
+  display: flex;
+  justify-content: space-between;
+}
+.menuhome{display: flex}
+.menuhome a{color: #fff; text-decoration: none; font-weight: bold; font-size: 20px; margin: 0 10px 0 10px;}
+.menuhome a:hover{text-decoration: underline;}
+.barmenu{display: flex;}
+.barmenu a{color: #fff; text-decoration: none; font-weight: bold; font-size: 20px; margin: 0 10px 0 10px;}
+.barmenu div{color: #fff; text-decoration: none; font-weight: bold; font-size: 20px; margin: 0 10px 0 10px;}
+
+.barmenu a:hover{text-decoration: underline;}
+/* Navigation Bar end*/
+#homeScreen{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: -1;
+  background-image: url(images/signed-out-home.jpg);
+  text-align: center;
+  background-position: center center;
+  background-size: cover;
+  color: #fff;
+}
+.LogInForm{
+  width: 100%;
+}
+.LogInForm p{
+  font-size:20px;
+  height: 15px;
+}
+.passwordInput{
+  width: 30%;
+  padding: 10px;
+  border-radius: 5px;
+  border:none;
+}
+.emailInput{
+  width: 30%;
+  padding: 10px;
+  border-radius: 5px;
+  border:none;
+}
+.logInButton{
+  border-radius: 5px;
+  padding: 10px;
+  margin: 1% 0;
+  width: 15%;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  cursor: pointer;
+}
+.pagination{
+  margin: 30px auto 30px auto;
+  display: flex;
+  width: 15%;
+}
+.pageNum{
+  background-color: #007bff;
+  border-color: #007bff;
+  padding:6px 15px 6px 15px;
+  margin: 0 2% 0 2%;
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.pageNum:hover{
+  background-color: #007bff9d;
+}
+.paginationColor{
+  background-color: #007bff9d!important;
+}
+.allUsers{
+  width: 60%;
+  margin: 0 auto 0 auto;
+}
+.UserIten{
+  background:#ffffff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
+  /* height: 50px; */
+}
+.userImage{
+  margin: 10px 0 8px 10px;
+}
+.userMove a{text-decoration: none;}
+.userMoveButton{
+  padding: 5px 0 0 0;
+  margin: 10px 10px 0 0;
+  background-color: #007bff;
+  width: 50px;
+  height: 30px;
+  color:#ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.userMoveButton:hover{
+  background-color: #007bff9d;
+
+}
+
+/* Chat */
+.chatBlock{
+  width: 70%;
+  height: 695px;
+  background: #ffffff;
+  margin: 0 auto 0 auto;
+  padding: 10px;
+  overflow: hidden;
+}
+.myMessage{
+  display:inline-block;
+
+  width: 100%;
+  margin: 10px;
+}
+.myMessage .message{
+  width: 50%;
+  background: #007bff;
+  color: #ffffff;
+  text-align: left;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
+}
+.userDataAccess{
+  margin: 0 0 0 20px;
+  text-align: left;
+}
+.notMyMessage{
+  width: 100%;
+  margin: 10px;
+  display:inline-block;
+}
+.notMyMessage .message{
+  width: 50%;
+  background: #007bff9d;
+  color: #ffffff;
+  text-align: left;
+  float: right;
+  padding: 2px 10px 2px 10px;
+  margin: 0 20px 0 0;
+  border-radius: 10px;
+}
+.Chat_form{
+  width: 70%;
+  margin: 10px auto 20px auto;
+ 
+  background: #cccccc;
+}
+.messageText{
+  margin: 0 10px 0 0;
+  width: 300px;
+  height: 30px;
+}
+
+/*Video Chat*/
+.container{
+  background-color: #ffffff;
+  height: 55%;
+  width: 53%;
+  margin: 2% auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5% 2% 2% 2%;
+}
+/* .row{
+  display: inline-block;
+  width: 100%;
+} */
+/* .video{
+  width: 50%;
+  height: 50%;
+} */
+.myVideo{
+  width: 100% !important; 
+  height: 80%;
+  margin: 3% auto 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.userVideo{
+  width: 30%;
+  height: 50%;
+  float: left;
+  margin: -23% 0 0 0;
+  position: relative;
+  z-index: 2;
+}
+.call_block{
+  width: 100%;
+  background: #ffffff;
+  height: 70px;
+}
+.acept_call{
+  background-color: #007bff9d;
+  color: #ffffff;
+  padding: 10px;
+  margin: 2% auto 0 auto;
+  width: 30%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.sendInvatationcss{
+  margin: 3% 0 0 0;
+}
+.endCall{
+  background-color: crimson;
+  color: #ffffff;
+  padding: 10px;
+  margin: 2% auto 0 auto;
+  width: 30%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
