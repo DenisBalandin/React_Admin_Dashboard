@@ -101,10 +101,9 @@ function VideoChat(props) {
     peer.on("stream", stream => {
       partnerVideo.current.srcObject = stream;
     });
-    console.log(callerSignal);
     peer.signal(callerSignal);
   }
-  //className={callAccepted? 'userVideo': 'myVideo' }
+
   let UserVideo;
   if (stream) {
     UserVideo = (
@@ -115,7 +114,7 @@ function VideoChat(props) {
   let PartnerVideo;
   if (callAccepted) {
     PartnerVideo = (
-      <Video className={callAccepted? 'myVideo': 'userVideo' }  playsInline ref={partnerVideo} autoPlay />
+      <Video className={callAccepted?  'myVideo' : 'userVideo' }  playsInline ref={partnerVideo} autoPlay />
     );
   }
 
@@ -128,20 +127,20 @@ function VideoChat(props) {
       </div>
     )
   }
-  if(props.match.params.userid !== undefined ){
+  if(props.match.params.userid !== undefined){
     Object.keys(users).map(key => {
-      if (key !== yourID && receivingCall !== true) {
-        callPeer(key)
+      if (key !== yourID) {
+         callPeer(key);
       }
-     
-    })
+    });
   }
   let sendInvatation;
   if (caller === "" && props.match.params.userid === undefined) {
+    let token = Math.random().toString(36).substr(2);
     sendInvatation = (
       <div className="sendInvatationcss">
-        <div>Send Invatation to another user:</div> 
-        <p>{window.location.href}/{yourID}</p>
+        <div onClick={acceptCall}>Send Invatation to another user:</div> 
+        <a target="_blank" href="localhost:3000/video_chat/345345345sdgfdg">localhost:3000/video_chat/{token}</a>
       </div>
     )
   }
