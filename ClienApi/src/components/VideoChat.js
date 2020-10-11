@@ -11,6 +11,7 @@ function VideoChat(props) {
   const [users, setUsers] = useState({});
   const [stream, setStream] = useState();
   const [receivingCall, setReceivingCall] = useState(false);
+  const [sendCallstate, setSendCall] = useState(false);
   const [caller, setCaller] = useState("");
   const [callerSignal, setCallerSignal] = useState();
   const [callAccepted, setCallAccepted] = useState(false);
@@ -48,8 +49,8 @@ function VideoChat(props) {
       window.location.reload(false);
     }
   }
-  //console.log(yourID,users,stream,receivingCall,caller,callerSignal,callAccepted);
   function callPeer(id) {
+    setSendCall(true);
     const peer = new Peer({
       initiator: true,
       trickle: false,
@@ -104,7 +105,6 @@ function VideoChat(props) {
     console.log(callerSignal);
     peer.signal(callerSignal);
   }
-  //className={callAccepted? 'userVideo': 'myVideo' }
   let UserVideo;
   if (stream) {
     UserVideo = (
@@ -128,13 +128,13 @@ function VideoChat(props) {
       </div>
     )
   }
-  if(props.match.params.userid !== undefined ){
-    Object.keys(users).map(key => {
-      if (key !== yourID && receivingCall !== true) {
-        callPeer(key)
-      }
-     
-    })
+  let sendCall;
+  if(props.match.params.userid !== undefined && sendCallstate === false ){
+    sendCall = (
+      <div className="acept_call">
+      <div onClick={() => callPeer(props.match.params.userid)}>Send call</div>
+    </div>
+    )
   }
   let sendInvatation;
   if (caller === "" && props.match.params.userid === undefined) {
@@ -146,7 +146,7 @@ function VideoChat(props) {
     )
   }
   let loading;
-  if (callAccepted !== true && props.match.params.userid !== undefined) {
+  if (sendCallstate === true && props.match.params.userid !== undefined && callAccepted !== true) {
     loading = (
       <div className="sendInvatationcss">
         <div>loading...</div> 
@@ -159,8 +159,6 @@ function VideoChat(props) {
       <div className="endCall" onClick={endCall}>End call</div>
     )
   }
-  // console.log(users);
-  // console.log(caller);
   return (
       <div className="container">
         {PartnerVideo}
@@ -170,6 +168,7 @@ function VideoChat(props) {
         {sendInvatation}
         {incomingCall}
         {leave}
+        {sendCall}
       </div> 
     </div>
   );

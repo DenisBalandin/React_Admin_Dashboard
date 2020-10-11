@@ -31,6 +31,7 @@ io.on('connection', socket => {
   socket.on("acceptCall", (data) => {
       io.to(data.to).emit('callAccepted', data.signal);
   })
+  
 });
 
 app.post('/auth/register', (req, res) => {
